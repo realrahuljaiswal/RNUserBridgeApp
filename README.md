@@ -1,33 +1,31 @@
 <img width="125" height="125" alt="1000071795" src="https://github.com/user-attachments/assets/2a289919-40f5-4118-b584-296269c44839" />
 
-📱 About the App
+📱 **About the App**
 
-I built this app to demonstrate how a React Native application can communicate with native iOS code written in Swift.
+I built this app to demonstrate how a React Native application can communicate with native iOS code written in Swift using a Native Bridge.
 
-The main idea of the app is simple:
+The app focuses on a simple user flow:
 
-Show a list of users
-
-Allow searching and filtering
-
-Open a detailed view for each user
+  *Display a list of users
+  *Allow searching and filtering
+  *Open a detailed view for a selected user
 
 All user data is fetched natively from Swift and then shared with React Native using a Native Bridge.
 There are no direct API calls from JavaScript.
 
-🧭 App Screens Overview
+🧭 ** App Screens Overview**
 
 The app mainly contains two screens:
 
-Dashboard Screen
+1. Dashboard Screen
+2. User Details Screen
 
-User Details Screen
+📸 **Screenshots**
 
-📸 Screenshots
-<img width="120" height="262" alt="Simulator Screenshot - iPhone 17 Pro - 2025-12-30 at 23 19 58" src="https://github.com/user-attachments/assets/e84d06ed-fbe8-4d5a-81df-a6b2184aac71" /><img width="120" height="262" alt="Simulator Screenshot - iPhone 17 Pro - 2025-12-30 at 23 20 15" src="https://github.com/user-attachments/assets/ad01f8a5-ba48-4bff-83fa-6155ac38fb43" /><img width="120" height="262" alt="Simulator Screenshot - iPhone 17 Pro - 2025-12-30 at 23 20 29" src="https://github.com/user-attachments/assets/3719954d-4624-475c-a5a2-17455959649b" /><img width="120" height="262" alt="Simulator Screenshot - iPhone 17 Pro - 2025-12-30 at 23 20 34" src="https://github.com/user-attachments/assets/efd9d91a-9416-4ce8-9f1a-41d388fa4af9" />
+<img width="120" height="262" alt="Simulator Screenshot - iPhone 17 Pro - 2025-12-30 at 23 19 58" src="https://github.com/user-attachments/assets/e84d06ed-fbe8-4d5a-81df-a6b2184aac71" /> <img width="120" height="262" alt="Simulator Screenshot - iPhone 17 Pro - 2025-12-30 at 23 20 15" src="https://github.com/user-attachments/assets/ad01f8a5-ba48-4bff-83fa-6155ac38fb43" /> <img width="120" height="262" alt="Simulator Screenshot - iPhone 17 Pro - 2025-12-30 at 23 20 29" src="https://github.com/user-attachments/assets/3719954d-4624-475c-a5a2-17455959649b" /> <img width="120" height="262" alt="Simulator Screenshot - iPhone 17 Pro - 2025-12-30 at 23 20 34" src="https://github.com/user-attachments/assets/efd9d91a-9416-4ce8-9f1a-41d388fa4af9" />
 
 
-🏠 Dashboard Screen
+🏠 **Dashboard Screen**
 
 The Dashboard is the main screen of the app.
 
@@ -51,7 +49,7 @@ Age
 
 When a user taps on a card, they are navigated to the User Details screen.
 
-Pagination Logic
+**Pagination Logic**
 
 I implemented pagination to avoid loading all users at once.
 
@@ -67,7 +65,7 @@ I stop pagination when the API returns fewer records than the requested limit
 
 This avoids infinite loading issues
 
-Search Functionality
+**Search Functionality**
 
 Search is available at the top of the Dashboard.
 
@@ -79,11 +77,11 @@ The list updates as the user types
 
 Search is handled on the React Native side since the data is already available locally.
 
-Filter Functionality
+**Filter Functionality**
 
 I added filters so users can narrow down the list easily.
 
-Filters available:
+**Filters available:**
 
 Age
 
@@ -91,7 +89,7 @@ City
 
 State
 
-How filtering works:
+**How filtering works:**
 
 All available ages, cities, and states are extracted from the fetched user data
 
@@ -99,7 +97,7 @@ These values are shown in custom dropdowns
 
 The user selects the required filters and taps Apply
 
-Important points:
+**Important points:**
 
 Filters are not applied automatically
 
@@ -109,7 +107,7 @@ A Clear option is provided to reset all filters
 
 This approach avoids invalid inputs and keeps the UX clean.
 
-Pull to Refresh
+**Pull to Refresh**
 
 I implemented pull to refresh on the user list.
 
@@ -121,7 +119,7 @@ Pagination values are reset
 
 Fresh data is fetched again from the Swift API
 
-👤 User Details Screen
+**👤 User Details Screen**
 
 The User Details screen shows complete information about a selected user.
 
@@ -167,7 +165,7 @@ Native data logic (Swift)
 
 UI and user interaction (React Native)
 
-⚙️ App Setup
+**⚙️ App Setup**
 
 To run this project locally, I followed the standard React Native CLI setup.
 
