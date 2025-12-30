@@ -1,6 +1,8 @@
+<img width="1024" height="1024" alt="1000071795" src="https://github.com/user-attachments/assets/2a289919-40f5-4118-b584-296269c44839" />
+
 📱 About the App
 
-I built this app as part of a technical assignment to demonstrate how a React Native application can communicate with native iOS code written in Swift.
+I built this app to demonstrate how a React Native application can communicate with native iOS code written in Swift.
 
 The main idea of the app is simple:
 
@@ -20,6 +22,8 @@ The app mainly contains two screens:
 Dashboard Screen
 
 User Details Screen
+📸 Screenshots
+<img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2025-12-30 at 23 19 58" src="https://github.com/user-attachments/assets/e84d06ed-fbe8-4d5a-81df-a6b2184aac71" />
 
 🏠 Dashboard Screen
 
@@ -182,12 +186,11 @@ React Native CLI environment setup
 I followed the official React Native environment setup guide before starting the project.
 
 Step 1: Clone the Repository
-git clone https://github.com/<your-username>/RNUserBridgeApp.git
+git clone -b main https://github.com/realrahuljaiswal/RNUserBridgeApp.git
 cd RNUserBridgeApp
 
 Step 2: Install JavaScript Dependencies
 npm install
-
 
 or
 
