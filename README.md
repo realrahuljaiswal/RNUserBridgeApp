@@ -1,97 +1,208 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+📱 About the App
 
-# Getting Started
+I built this app as part of a technical assignment to demonstrate how a React Native application can communicate with native iOS code written in Swift.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+The main idea of the app is simple:
 
-## Step 1: Start Metro
+Show a list of users
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+Allow searching and filtering
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+Open a detailed view for each user
 
-```sh
-# Using npm
-npm start
+All user data is fetched natively from Swift and then shared with React Native using a Native Bridge.
+There are no direct API calls from JavaScript.
 
-# OR using Yarn
-yarn start
-```
+🧭 App Screens Overview
 
-## Step 2: Build and run your app
+The app mainly contains two screens:
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+Dashboard Screen
 
-### Android
+User Details Screen
 
-```sh
-# Using npm
-npm run android
+🏠 Dashboard Screen
 
-# OR using Yarn
-yarn android
-```
+The Dashboard is the main screen of the app.
 
-### iOS
+What the Dashboard does
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+Fetches a list of users from the Swift Native Module
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+Displays users in a scrollable list
 
-```sh
-bundle install
-```
+Supports pagination, search, filter, and pull to refresh
 
-Then, and every time you update your native dependencies, run:
+User List
 
-```sh
-bundle exec pod install
-```
+Each user card shows:
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+Profile image
 
-```sh
-# Using npm
-npm run ios
+Full name
 
-# OR using Yarn
-yarn ios
-```
+Age
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+When a user taps on a card, they are navigated to the User Details screen.
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+Pagination Logic
 
-## Step 3: Modify your app
+I implemented pagination to avoid loading all users at once.
 
-Now that you have successfully run the app, let's make changes!
+Initially, the app requests 10 users with skip = 0
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+When the user scrolls near the bottom, the next set of users is requested
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+The updated limit and skip values are passed to the Swift API method
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+To prevent unnecessary API calls:
 
-## Congratulations! :tada:
+I stop pagination when the API returns fewer records than the requested limit
 
-You've successfully run and modified your React Native App. :partying_face:
+This avoids infinite loading issues
 
-### Now what?
+Search Functionality
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+Search is available at the top of the Dashboard.
 
-# Troubleshooting
+Users can search by name
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+Search is case-insensitive
 
-# Learn More
+The list updates as the user types
 
-To learn more about React Native, take a look at the following resources:
+Search is handled on the React Native side since the data is already available locally.
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Filter Functionality
+
+I added filters so users can narrow down the list easily.
+
+Filters available:
+
+Age
+
+City
+
+State
+
+How filtering works:
+
+All available ages, cities, and states are extracted from the fetched user data
+
+These values are shown in custom dropdowns
+
+The user selects the required filters and taps Apply
+
+Important points:
+
+Filters are not applied automatically
+
+The list updates only after clicking Apply
+
+A Clear option is provided to reset all filters
+
+This approach avoids invalid inputs and keeps the UX clean.
+
+Pull to Refresh
+
+I implemented pull to refresh on the user list.
+
+When the user pulls down:
+
+The existing list is cleared
+
+Pagination values are reset
+
+Fresh data is fetched again from the Swift API
+
+👤 User Details Screen
+
+The User Details screen shows complete information about a selected user.
+
+How it works
+
+The selected userId is passed from the Dashboard
+
+A native Swift method is called to fetch user details
+
+The response is displayed in a structured layout
+
+Information displayed
+
+Profile image
+
+Full name
+
+Age and gender
+
+Email and phone number
+
+Address (city, state, country)
+
+Company name
+
+The screen uses a card-based layout to keep the information easy to read.
+
+🔗 Native Swift Integration
+
+All API calls are implemented on the iOS native side using Swift.
+
+I created a Swift Native Module where:
+
+Network requests are handled using URLSession
+
+Methods are exposed to React Native using @objc
+
+Data is returned using Promise resolve or reject
+
+This ensures a clear separation between:
+
+Native data logic (Swift)
+
+UI and user interaction (React Native)
+
+⚙️ App Setup
+
+To run this project locally, I followed the standard React Native CLI setup.
+
+Prerequisites
+
+Before running the app, make sure the following are installed:
+
+Node.js
+
+npm or Yarn
+
+Xcode (for iOS)
+
+CocoaPods
+
+React Native CLI environment setup
+
+I followed the official React Native environment setup guide before starting the project.
+
+Step 1: Clone the Repository
+git clone https://github.com/<your-username>/RNUserBridgeApp.git
+cd RNUserBridgeApp
+
+Step 2: Install JavaScript Dependencies
+npm install
+
+
+or
+
+yarn install
+
+Step 3: Install iOS Dependencies
+
+Since this project includes native iOS code, I installed CocoaPods dependencies.
+
+cd ios
+pod install
+cd ..
+
+
+This step is required when running the project for the first time or after updating native dependencies.
+
+Step 4: Run the App on iOS
+npx react-native run-ios
