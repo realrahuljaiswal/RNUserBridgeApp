@@ -1,4 +1,4 @@
-<img width="1024" height="1024" alt="1000071795" src="https://github.com/user-attachments/assets/2a289919-40f5-4118-b584-296269c44839" />
+<img width="125" height="125" alt="1000071795" src="https://github.com/user-attachments/assets/2a289919-40f5-4118-b584-296269c44839" />
 
 📱 About the App
 
@@ -23,7 +23,14 @@ Dashboard Screen
 
 User Details Screen
 📸 Screenshots
-<img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2025-12-30 at 23 19 58" src="https://github.com/user-attachments/assets/e84d06ed-fbe8-4d5a-81df-a6b2184aac71" />
+<img width="120" height="262" alt="Simulator Screenshot - iPhone 17 Pro - 2025-12-30 at 23 19 58" src="https://github.com/user-attachments/assets/e84d06ed-fbe8-4d5a-81df-a6b2184aac71" />
+
+<img width="120" height="262" alt="Simulator Screenshot - iPhone 17 Pro - 2025-12-30 at 23 20 15" src="https://github.com/user-attachments/assets/ad01f8a5-ba48-4bff-83fa-6155ac38fb43" />
+
+<img width="120" height="262" alt="Simulator Screenshot - iPhone 17 Pro - 2025-12-30 at 23 20 29" src="https://github.com/user-attachments/assets/3719954d-4624-475c-a5a2-17455959649b" />
+
+<img width="120" height="262" alt="Simulator Screenshot - iPhone 17 Pro - 2025-12-30 at 23 20 34" src="https://github.com/user-attachments/assets/efd9d91a-9416-4ce8-9f1a-41d388fa4af9" />
+
 
 🏠 Dashboard Screen
 
