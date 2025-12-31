@@ -65,11 +65,11 @@ When a user taps on a card, they are navigated to the User Details screen.
 
 I implemented pagination to avoid loading all users at once.
 
-- Initially, the app requests 10 users with skip = 0
+- Initially, the app requests 10 users with `skip = 0`
 
 - When the user scrolls near the bottom, the next set of users is requested
 
-- Updated limit and skip values are passed to the Swift API method 
+- Updated `limit` and `skip` values are passed to the Swift API method 
 To prevent unnecessary API calls:
 
 - Pagination stops when the API returns fewer records than the requested limit
@@ -134,7 +134,7 @@ The User Details screen shows complete information about a selected user.
 
 #### How it works
 
-- The selected userId is passed from the Dashboard
+- The selected `userId` is passed from the Dashboard
 
 - A native Swift method fetches the user details
 
@@ -172,11 +172,11 @@ The assignment required:
 
 #### Files Used for Bridging
 
-- UserModule.swift → Native Swift implementation
+- `UserModule.swift` → Native Swift implementation
 
-- UserModule.m → Bridge exposure file
+- `UserModule.m` → Bridge exposure file
 
-- UserNativeService.ts → TypeScript interface
+- `UserNativeService.ts` → TypeScript interface
 
 #### UserModule.swift
 
@@ -184,11 +184,11 @@ This file contains the native logic.
 
 In this file:
 
-- I created a Swift class extending NSObject
+- I created a Swift class extending `NSObject`
 
-- API calls are made using URLSession
+- API calls are made using `URLSession`
 
-- Methods are exposed using @objc
+- Methods are exposed using `@objc`
 
 - Data is returned using Promise resolve / reject
 
@@ -196,7 +196,7 @@ Swift handles:
 
 - Network requests
 
-- Pagination parameters (limit, skip)
+- Pagination parameters (`limit`, `skip`)
 
 - User ID handling
 
@@ -206,7 +206,7 @@ Swift handles:
 
 This file exposes the Swift module to React Native.
 
-- It uses RCT_EXTERN_MODULE
+- It uses `RCT_EXTERN_MODULE`
 
 - It declares the methods available to JavaScript
 
@@ -214,9 +214,9 @@ This file exposes the Swift module to React Native.
 
 #### Exposed Native Methods
 
-- getUsers(limit, skip)
+- `getUsers(limit, skip)`
 
-- getUserById(userId)
+- `getUserById(userId)`
 
 Each method:
 
@@ -225,4 +225,96 @@ Each method:
 - Returns a Promise
 
 - Resolves with API data or rejects with an error
+
+#### Data Flow
+```
+React Native UI
+   ↓
+UserNativeService (TypeScript)
+   ↓
+NativeModules.UserModule
+   ↓
+Swift (URLSession API call)
+   ↓
+Promise resolve / reject
+   ↓
+React Native UI update
+```
+
+#### 🧠 Architecture Decision
+
+I used the **classic Native Module architecture** because:
+
+- It is stable and widely used
+
+- The new architecture is optional and not enabled by default
+
+- It is appropriate for this assignment
+
+Swift handles **data fetching**, and React Native handles **UI and user interaction.**
+
+### ⚙️ App Setup
+
+#### Prerequisites
+
+Make sure the following are installed:
+
+- Node.js
+
+- npm or Yarn
+
+- Xcode
+
+- CocoaPods
+
+- React Native CLI environment
+
+#### Step 1: Clone the Repository
+```
+git clone -b main https://github.com/realrahuljaiswal/RNUserBridgeApp.git
+cd RNUserBridgeApp
+```
+
+#### Step 2: Install JavaScript Dependencies
+
+```
+npm install
+```
+
+or
+
+```
+yarn install
+```
+
+#### Step 3: Install iOS Dependencies
+
+```
+cd ios
+pod install
+cd ..
+```
+This step is required when running the project for the first time or after updating native dependencies.
+
+#### Step 4: Run the App on iOS
+```
+npx react-native run-ios
+```
+
+### 🧠 Final Notes
+
+- Swift handles all API calls
+
+- React Native handles UI, navigation, search, and filters
+
+- The app follows a clean and real-world architecture
+
+
+
+
+## Authors
+##### Rahul Kumar
+##### Software Developer
+
+- [@realrahuljaiswal](https://in.linkedin.com/in/rahul-kumar-1ab11320a)
 
