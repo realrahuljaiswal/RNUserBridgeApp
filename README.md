@@ -35,7 +35,7 @@ _(iOS Simulator)_
 
 | Dashboard    | Search | Filter | User Details |
 | -------- | ------- | -------- | ------- |
-| ![image](files/Users/jzhang/Desktop/Isolated.png)  | ![image](files/Users/jzhang/Desktop/Isolated.png)    | ![image](files/Users/jzhang/Desktop/Isolated.png)  | ![image](files/Users/jzhang/Desktop/Isolated.png)   |
+| <img width="225" height="485" alt="Simulator Screenshot - iPhone 17 Pro - 2025-12-30 at 23 19 58" src="https://github.com/user-attachments/assets/1df6453b-161d-42a5-b916-6c3ec7530047" />| <img width="225" height="485" alt="Simulator Screenshot - iPhone 17 Pro - 2025-12-30 at 23 20 15" src="https://github.com/user-attachments/assets/162a8555-e777-4fd1-b612-9e62b1a77e6e" />| <img width="225" height="485" alt="Simulator Screenshot - iPhone 17 Pro - 2025-12-30 at 23 20 29" src="https://github.com/user-attachments/assets/84f1aacd-55c6-4828-bfd2-f110d9427ad4" />| <img width="225" height="485" alt="Simulator Screenshot - iPhone 17 Pro - 2025-12-30 at 23 20 34" src="https://github.com/user-attachments/assets/81aeaeff-4848-4d61-8181-466283f21ec4" />|
 
 ### 🏠 Dashboard Screen
 
