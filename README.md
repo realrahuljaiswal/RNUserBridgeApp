@@ -1,211 +1,228 @@
-<img width="125" height="125" alt="1000071795" src="https://github.com/user-attachments/assets/2a289919-40f5-4118-b584-296269c44839" />
 
-📱 **About the App**
+# RNUserBridgeApp
 
-I built this app to demonstrate how a React Native application can communicate with native iOS code written in Swift using a Native Bridge.
-
-The app focuses on a simple user flow:
-
-  *Display a list of users
-  *Allow searching and filtering
-  *Open a detailed view for a selected user
-
-All user data is fetched natively from Swift and then shared with React Native using a Native Bridge.
-There are no direct API calls from JavaScript.
-
-🧭 ** App Screens Overview**
-
-The app mainly contains two screens:
-
-1. Dashboard Screen
-2. User Details Screen
-
-📸 **Screenshots**
-
-<img width="120" height="262" alt="Simulator Screenshot - iPhone 17 Pro - 2025-12-30 at 23 19 58" src="https://github.com/user-attachments/assets/e84d06ed-fbe8-4d5a-81df-a6b2184aac71" /> <img width="120" height="262" alt="Simulator Screenshot - iPhone 17 Pro - 2025-12-30 at 23 20 15" src="https://github.com/user-attachments/assets/ad01f8a5-ba48-4bff-83fa-6155ac38fb43" /> <img width="120" height="262" alt="Simulator Screenshot - iPhone 17 Pro - 2025-12-30 at 23 20 29" src="https://github.com/user-attachments/assets/3719954d-4624-475c-a5a2-17455959649b" /> <img width="120" height="262" alt="Simulator Screenshot - iPhone 17 Pro - 2025-12-30 at 23 20 34" src="https://github.com/user-attachments/assets/efd9d91a-9416-4ce8-9f1a-41d388fa4af9" />
+A React Native application built to demonstrate **native iOS API integration using Swift** and communication with React Native through a Native Bridge.
 
 
-🏠 **Dashboard Screen**
+## 📌 About the App
+I built this app to show how a **React Native application can communicate with native iOS code written in Swift.**
+
+The app follows a simple and clear flow:
+
+- Display a list of users
+
+- Allow searching and filtering
+
+- Open a detailed view for a selected user
+
+All API calls are handled **natively in Swift**, and the data is passed to React Native using a **Native Module bridge.**
+
+There are **no direct API calls from JavaScript.**
+
+### 🧭 App Screens Overview
+
+The app contains two main screens:
+
+- Dashboard Screen
+
+- User Details Screen
+
+### 📸 Screenshots
+_(iOS Simulator)_
+
+
+
+
+| Dashboard    | Search | Filter | User Details |
+| -------- | ------- | -------- | ------- |
+| ![image](files/Users/jzhang/Desktop/Isolated.png)  | ![image](files/Users/jzhang/Desktop/Isolated.png)    | ![image](files/Users/jzhang/Desktop/Isolated.png)  | ![image](files/Users/jzhang/Desktop/Isolated.png)   |
+
+### 🏠 Dashboard Screen
 
 The Dashboard is the main screen of the app.
 
-What the Dashboard does
+#### What the Dashboard does
 
-Fetches a list of users from the Swift Native Module
+- Fetches a list of users from the **Swift Native Module**
 
-Displays users in a scrollable list
+- Displays users in a scrollable list
 
-Supports pagination, search, filter, and pull to refresh
+- Supports pagination, search, filters, and pull to refresh
 
-User List
+### User List
 
 Each user card shows:
 
-Profile image
+- Profile image
 
-Full name
+- Full name
 
-Age
+- Age
 
 When a user taps on a card, they are navigated to the User Details screen.
 
-**Pagination Logic**
+### Pagination Logic
 
 I implemented pagination to avoid loading all users at once.
 
-Initially, the app requests 10 users with skip = 0
+- Initially, the app requests 10 users with skip = 0
 
-When the user scrolls near the bottom, the next set of users is requested
+- When the user scrolls near the bottom, the next set of users is requested
 
-The updated limit and skip values are passed to the Swift API method
-
+- Updated limit and skip values are passed to the Swift API method 
 To prevent unnecessary API calls:
 
-I stop pagination when the API returns fewer records than the requested limit
+- Pagination stops when the API returns fewer records than the requested limit
 
-This avoids infinite loading issues
+This avoids infinite loading issues.
 
-**Search Functionality**
+### 🔍 Search Functionality
 
 Search is available at the top of the Dashboard.
 
-Users can search by name
+- Users can search by name
 
-Search is case-insensitive
+- Search is case-insensitive
 
-The list updates as the user types
+- The list updates as the user types
 
 Search is handled on the React Native side since the data is already available locally.
 
-**Filter Functionality**
+### 🎛 Filter Functionality
 
-I added filters so users can narrow down the list easily.
+Filters allow users to narrow down the list.
 
-**Filters available:**
+#### Available filters:
 
-Age
+- Age
 
-City
+- City
 
-State
+- State
 
-**How filtering works:**
+#### How filtering works:
 
-All available ages, cities, and states are extracted from the fetched user data
+- All available ages, cities, and states are extracted from the fetched user data
 
-These values are shown in custom dropdowns
+- These values are shown using custom dropdown components
 
-The user selects the required filters and taps Apply
+- Filters are applied only after tapping **Apply**
 
-**Important points:**
+#### Important points:
 
-Filters are not applied automatically
+- Filters are not applied automatically
 
-The list updates only after clicking Apply
+- A **Clear** option resets all filters
 
-A Clear option is provided to reset all filters
+- This avoids invalid input and keeps the UX clean
 
-This approach avoids invalid inputs and keeps the UX clean.
+### 🔄 Pull to Refresh
 
-**Pull to Refresh**
-
-I implemented pull to refresh on the user list.
+Pull to refresh is implemented on the user list.
 
 When the user pulls down:
 
-The existing list is cleared
+- The existing list is cleared
 
-Pagination values are reset
+- Pagination values are reset
 
-Fresh data is fetched again from the Swift API
+- Fresh data is fetched again from the Swift API
 
-**👤 User Details Screen**
+### 👤 User Details Screen
 
 The User Details screen shows complete information about a selected user.
 
-How it works
+#### How it works
 
-The selected userId is passed from the Dashboard
+- The selected userId is passed from the Dashboard
 
-A native Swift method is called to fetch user details
+- A native Swift method fetches the user details
 
-The response is displayed in a structured layout
+- The response is displayed in a structured layout
 
-Information displayed
+#### Information displayed
 
-Profile image
+- Profile image
 
-Full name
+- Full name
 
-Age and gender
+- Age and gender
 
-Email and phone number
+- Email and phone number
 
-Address (city, state, country)
+- Address (city, state, country)
 
-Company name
+- Company name
 
 The screen uses a card-based layout to keep the information easy to read.
 
-🔗 Native Swift Integration
+### 🔗 Swift – React Native Bridging Explanation
 
-All API calls are implemented on the iOS native side using Swift.
+In this app, I used the **classic React Native Native Module approach** to connect Swift with React Native.
 
-I created a Swift Native Module where:
+#### Why Native Bridging
 
-Network requests are handled using URLSession
+The assignment required:
 
-Methods are exposed to React Native using @objc
+- API calls to be written in Swift
 
-Data is returned using Promise resolve or reject
+- No API calls from JavaScript
 
-This ensures a clear separation between:
+- Data to be shared via a Native Bridge
 
-Native data logic (Swift)
+#### Files Used for Bridging
 
-UI and user interaction (React Native)
+- UserModule.swift → Native Swift implementation
 
-**⚙️ App Setup**
+- UserModule.m → Bridge exposure file
 
-To run this project locally, I followed the standard React Native CLI setup.
+- UserNativeService.ts → TypeScript interface
 
-Prerequisites
+#### UserModule.swift
 
-Before running the app, make sure the following are installed:
+This file contains the native logic.
 
-Node.js
+In this file:
 
-npm or Yarn
+- I created a Swift class extending NSObject
 
-Xcode (for iOS)
+- API calls are made using URLSession
 
-CocoaPods
+- Methods are exposed using @objc
 
-React Native CLI environment setup
+- Data is returned using Promise resolve / reject
 
-I followed the official React Native environment setup guide before starting the project.
+Swift handles:
 
-Step 1: Clone the Repository
-git clone -b main https://github.com/realrahuljaiswal/RNUserBridgeApp.git
-cd RNUserBridgeApp
+- Network requests
 
-Step 2: Install JavaScript Dependencies
-npm install
+- Pagination parameters (limit, skip)
 
-or
+- User ID handling
 
-yarn install
+- Error handling
 
-Step 3: Install iOS Dependencies
+#### UserModule.m
 
-Since this project includes native iOS code, I installed CocoaPods dependencies.
+This file exposes the Swift module to React Native.
 
-cd ios
-pod install
-cd ..
+- It uses RCT_EXTERN_MODULE
 
+- It declares the methods available to JavaScript
 
-This step is required when running the project for the first time or after updating native dependencies.
+- It contains **no business logic**
 
-Step 4: Run the App on iOS
-npx react-native run-ios
+#### Exposed Native Methods
+
+- getUsers(limit, skip)
+
+- getUserById(userId)
+
+Each method:
+
+- Accepts parameters from React Native
+
+- Returns a Promise
+
+- Resolves with API data or rejects with an error
+
